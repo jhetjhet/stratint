@@ -1,0 +1,7 @@
+services:
+  fastapi:
+    image: snits/stratint-api:latest
+    restart: always
+  react:
+    image: snits/stratint-react:latest
+    restart: always
