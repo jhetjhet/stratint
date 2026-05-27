@@ -1,19 +1,33 @@
+
 # Strategy Pack Generator
+
 
 A single-page web application that generates a complete Strategy Pack for a given company using a two-step AI pipeline. The app reads two uploaded documents and produces:
 - Strategy-On-A-Page (SOAP)
 - 3-Horizon Model (3HM)
 - Balanced Scorecard (BSC)
 
-All outputs are rendered directly on the website in a professional, boardroom-ready format.
-
 ---
 
-## Features
-- **Step 1:** Upload two documents (company overview & strategy reference) and generate SOAP + 3HM.
-- **Step 2:** Generate a Balanced Scorecard (BSC) using only the Step 1 output.
-- **No downloads or exports:** All results are displayed on the page.
-- **Modern UI:** Designed for clarity and professional presentation.
+## Stack
+
+- **Frontend:** React (Vite, TypeScript, TailwindCSS)
+- **Backend:** FastAPI (Python 3.11+)
+- **AI:** DeepSeek (OpenAI-compatible API)
+---
+
+## AI Pipeline Overview
+
+1. **Step 1: SOAP + 3HM Generation**
+	- User uploads two documents: a company overview and a strategy reference.
+	- FastAPI backend extracts text and sends a prompt to the DeepSeek LLM.
+	- The LLM returns structured JSON for SOAP and 3-Horizon Model.
+	- Results are displayed in the UI.
+
+2. **Step 2: BSC Generation**
+	- User triggers Step 2, sending only the Step 1 output to the backend.
+	- FastAPI builds a new prompt and calls the LLM to generate a Balanced Scorecard (BSC).
+	- The BSC is returned and rendered, with RAG Status and Lead fields left blank for user input.
 
 ---
 
@@ -21,7 +35,7 @@ All outputs are rendered directly on the website in a professional, boardroom-re
 
 ### Prerequisites
 - Node.js (v18+ recommended)
-- Python 3.9+
+- Python 3.11+
 - (Optional) [pnpm](https://pnpm.io/) or npm/yarn for frontend
 
 ### 1. Clone the repository
@@ -67,7 +81,13 @@ cd ../core-strategy-lab
 pnpm install # or npm install or yarn
 pnpm run dev # or npm run dev or yarn dev
 ```
-The app will be available at `http://localhost:5173` (or as shown in your terminal).
+
+Env:
+```
+VITE_API_BASE=http://localhost:8000
+```
+
+The app will be available at `http://localhost:8080` (or as shown in your terminal).
 
 ---
 ### Docker Setup (Development)
