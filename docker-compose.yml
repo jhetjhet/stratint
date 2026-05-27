@@ -1,0 +1,22 @@
+services:
+  fastapi:
+    build:
+      context: ./fastapi-stratint
+      dockerfile: Dockerfile
+    env_file:
+      - ./fastapi-stratint/.env
+    ports:
+      - "${FASTAPI_PORT:-8000}:8000"
+    networks:
+      - stratint
+  react:
+    build:
+      context: ./react-stratint
+      dockerfile: Dockerfile
+    networks:
+      - stratint
+    ports:
+      - "${REACT_PORT:-8080}:8080"
+networks:
+  stratint:
+    driver: bridge

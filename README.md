@@ -70,7 +70,16 @@ pnpm run dev # or npm run dev or yarn dev
 The app will be available at `http://localhost:5173` (or as shown in your terminal).
 
 ---
+### Docker Setup (Development)
 
+To run both backend and frontend with Docker Compose for development:
+
+```bash
+docker compose up --build
+```
+This will start both services with hot reload and live updates.
+
+---
 ### 4. Usage
 1. Open the frontend in your browser.
 2. Upload the required documents and run Step 1.
@@ -85,13 +94,3 @@ The app will be available at `http://localhost:5173` (or as shown in your termin
 - `core-strategy-lab/` — React frontend (UI, API integration)
 
 ---
-
-## Notes
-- The BSC's RAG Status and Lead fields are left blank for user input, as required.
-- For development, CORS is enabled for all origins.
-- Make sure your DeepSeek/OpenAI API key is valid and has sufficient quota.
-
----
-
-## License
-MIT (or your preferred license)

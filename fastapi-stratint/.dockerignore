@@ -1,0 +1,6 @@
+.env
+*.md
+.venv/
+.dockerignore
+.gitignore
+__pycache__/
