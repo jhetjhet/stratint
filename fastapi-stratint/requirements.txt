@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+python-multipart
+pydantic
+pydantic-settings
+openai
+pymupdf
+python-docx
+python-dotenv
+python-magic
+httpx
